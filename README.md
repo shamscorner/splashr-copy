@@ -1,3 +1,7 @@
+![Screenshot 1](https://raw.githubusercontent.com/shamscorner/images/main/splashr-0.png)
+![Screenshot 1](https://raw.githubusercontent.com/shamscorner/images/main/splashr-1.png)
+![Screenshot 1](https://raw.githubusercontent.com/shamscorner/images/main/splashr-2.png)
+
 # Local Development
 
 You can setup this project as you like, but the [Laradock](https://laradock.io/) is recommended, if you are interested to setup using `Docker`.
