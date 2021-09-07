@@ -1,0 +1,22 @@
+extend type Query {
+    searchManagers(query: String!): [Manager!]
+}
+
+extend type Mutation {
+    updateManager(id: ID!, manager: ManagerInput! @spread): Manager @update
+}
+
+type Manager {
+    id: ID!
+    user_id: ID!
+    created_at: DateTime
+    updated_at: DateTime
+    role: Int
+    user: User! @belongsTo
+    company_manager_pivot: CompanyManager
+    manager_order_pivot: ManagerOrder
+}
+
+input ManagerInput {
+    role: Int!
+}

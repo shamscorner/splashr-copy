@@ -1,0 +1,43 @@
+extend type Query {
+    tasksByOrder(
+        order_id: ID! @where(operator: "=")
+        user_id: ID! @where(operator: "=")
+        orderBy: _ @orderBy(columns: ["is_completed", "updated_at"])
+    ): [Task!] @paginate(defaultCount: 20)
+
+    tasksByUser(
+        user_id: ID! @where(operator: "=")
+        orderBy: _ @orderBy(columns: ["is_completed", "updated_at"])
+    ): [Task!] @paginate(defaultCount: 20)
+}
+
+extend type Mutation {
+    createTask(task: TaskInput! @spread): Task @create
+    updateTask(id: ID!, task: TaskUpdateInput! @spread): Task @update
+    deleteTask(id: ID!): Task @delete
+}
+
+type Task {
+    id: ID!
+    description: String!
+    order_id: ID!
+    user_id: ID!
+    is_completed: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+    order: Order! @belongsTo
+}
+
+input TaskInput {
+    description: String!
+    order_id: ID!
+    user_id: ID!
+    is_completed: Boolean
+}
+
+input TaskUpdateInput {
+    description: String
+    order_id: ID!
+    user_id: ID!
+    is_completed: Boolean
+}

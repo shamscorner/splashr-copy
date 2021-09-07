@@ -1,0 +1,27 @@
+extend type Query {
+    platforms: [Platform!] @all
+}
+
+type Platform {
+    id: ID!
+    name: String!
+    is_verified: Boolean
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreatePlatformInput {
+    name: String!
+    is_verified: Boolean
+}
+
+input UpdatePlatformInput {
+    name: String!
+    is_verified: Boolean
+}
+
+input UpsertPlatformInput {
+    id: ID!
+    name: String!
+    is_verified: Boolean
+}

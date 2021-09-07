@@ -1,0 +1,26 @@
+extend type Mutation {
+    createCompanyCredit(
+        companyCredit: CompanyCreditInput! @spread
+    ): CompanyCredit @create
+}
+
+type CompanyCredit {
+    id: ID!
+    credit_id: ID!
+    company_id: ID!
+    manager_id: ID!
+    reference_number: String
+    quantity: Int
+    created_at: DateTime!
+    updated_at: DateTime!
+    credit: Credit @belongsTo
+    manager: Manager @belongsTo
+}
+
+input CompanyCreditInput {
+    credit_id: ID!
+    company_id: ID!
+    manager_id: ID!
+    reference_number: String
+    quantity: Int
+}

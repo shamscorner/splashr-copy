@@ -1,0 +1,15 @@
+mutation UPDATE_CREATIVE_DOCUMENT(
+    $id: ID!
+    $creativeDocument: UpdateCreativeDocumentInput!
+) {
+    updateCreativeDocument(id: $id, creativeDocument: $creativeDocument) {
+        id
+        type
+        url
+        order_id
+        document_id
+        is_changed
+        created_at
+        updated_at
+    }
+}

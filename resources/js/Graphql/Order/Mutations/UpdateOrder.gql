@@ -1,0 +1,5 @@
+mutation UPDATE_ORDER($id: ID!, $order: UpdateOrderInput!) {
+    updateOrder(id: $id, order: $order) {
+        id
+    }
+}

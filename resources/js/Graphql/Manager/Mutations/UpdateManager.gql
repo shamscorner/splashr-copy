@@ -1,0 +1,6 @@
+mutation UPDATE_MANAGER($id: ID!, $manager: ManagerInput!) {
+    updateManager(id: $id, manager: $manager) {
+        id
+        role
+    }
+}

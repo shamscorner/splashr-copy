@@ -1,0 +1,7 @@
+mutation CREATE_ORDER_TASK($task: TaskInput!) {
+    createTask(task: $task) {
+        id
+        description
+        is_completed
+    }
+}

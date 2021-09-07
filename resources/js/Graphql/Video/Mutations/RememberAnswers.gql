@@ -1,0 +1,6 @@
+mutation REMEMBER_ANSWERS($answers: RememberAnswersInput!) {
+    rememberAnswers(answers: $answers) {
+        id
+        answers
+    }
+}

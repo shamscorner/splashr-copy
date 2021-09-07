@@ -1,0 +1,44 @@
+extend type Query {
+    invitationsByInviter(inviter_id: ID! @where(operator: "=")): [Invitation!]
+        @all
+}
+
+extend type Mutation {
+    sendUserRegistrationInvite(data: userInviteInput!): Invitation
+    updateInvitation(
+        id: ID!
+        invitation: invitationUpdateInput! @spread
+    ): Invitation @update
+    deleteInvitation(id: ID!): Invitation @delete
+}
+
+type Invitation {
+    id: ID!
+    invitee_email: String!
+    inviter_id: ID!
+    metadata: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input inviterInput {
+    id: ID!
+    email: String!
+    company_id: ID!
+    type: Int!
+}
+
+input invitationUpdateInput {
+    metadata: String!
+}
+
+input metadataInput {
+    inviter: inviterInput!
+    manager_type: Int
+}
+
+input userInviteInput {
+    invitee_email: String!
+    inviter_id: ID!
+    metadata: metadataInput
+}

@@ -1,0 +1,36 @@
+extend type Mutation {
+    createCreativeDocument(
+        creativeDocument: CreateCreativeDocumentInput! @spread
+    ): CreativeDocument @create
+    updateCreativeDocument(
+        id: ID!
+        creativeDocument: UpdateCreativeDocumentInput! @spread
+    ): CreativeDocument @update
+}
+
+type CreativeDocument {
+    id: ID!
+    type: Int!
+    url: String!
+    order_id: ID!
+    document_id: String!
+    is_changed: Boolean
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateCreativeDocumentInput {
+    type: Int!
+    url: String!
+    order_id: ID!
+    document_id: String!
+    is_changed: Boolean
+}
+
+input UpdateCreativeDocumentInput {
+    type: Int!
+    url: String!
+    order_id: ID!
+    document_id: String!
+    is_changed: Boolean
+}

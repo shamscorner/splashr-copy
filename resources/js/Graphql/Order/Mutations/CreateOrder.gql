@@ -1,0 +1,5 @@
+mutation CREATE_ORDER($order: CreateOrderInput!) {
+    createOrder(order: $order) {
+        id
+    }
+}

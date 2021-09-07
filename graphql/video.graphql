@@ -1,0 +1,136 @@
+extend type Query {
+    video(id: ID! @eq): Video @find
+    videos: [Video!] @paginate(defaultCount: 10)
+}
+
+extend type Mutation {
+    createVideo(video: CreateVideoInput! @spread): Video @create
+    updateVideo(id: ID!, video: UpdateVideoInput! @spread): Video @update
+    deleteVideo(id: ID!): Video @delete
+}
+
+type Video {
+    id: ID!
+    client_id: ID
+    campaign_id: ID
+    company_id: ID
+    name: String!
+    service_offer: String
+    audience: String
+    key_message: String
+    is_voice_over: Boolean
+    other_requirements: String
+    thumbnail: String
+    status: Int
+    pending_side: Int
+    is_visited: Boolean
+    session_type: String
+    languages: String
+    actor_pref: String
+    manager_notes: String
+    created_at: DateTime!
+    updated_at: DateTime!
+    platforms: [Platform!] @belongsToMany
+    purposes: [Purpose!] @belongsToMany
+    formats: [Format!] @belongsToMany
+    company: Company! @belongsTo
+}
+
+input CreateVideoInput {
+    client_id: ID
+    campaign_id: ID
+    company_id: ID
+    name: String!
+    service_offer: String
+    audience: String
+    key_message: String
+    is_voice_over: Boolean
+    other_requirements: String
+    thumbnail: String
+    status: Int
+    pending_side: Int
+    is_visited: Boolean
+    session_type: String
+    languages: String
+    actor_pref: String
+    manager_notes: String
+    formats: CreateFormatBelongsToMany
+    purposes: CreatePurposeBelongsToMany
+    platforms: CreatePlatformBelongsToMany
+}
+
+input UpdateVideoInput {
+    client_id: ID
+    campaign_id: ID
+    name: String
+    service_offer: String
+    audience: String
+    key_message: String
+    is_voice_over: Boolean
+    other_requirements: String
+    thumbnail: String
+    status: Int
+    pending_side: Int
+    is_visited: Boolean
+    session_type: String
+    languages: String
+    actor_pref: String
+    manager_notes: String
+    formats: UpdateFormatBelongsToMany
+    purposes: UpdatePurposeBelongsToMany
+    platforms: UpdatePlatformBelongsToMany
+}
+
+input CreateFormatBelongsToMany {
+    create: [CreateFormatInput!]
+    upsert: [UpsertFormatInput!]
+    connect: [ID!]
+    sync: [ID!]
+}
+
+input CreatePurposeBelongsToMany {
+    create: [CreatePurposeInput!]
+    upsert: [UpsertPurposeInput!]
+    connect: [ID!]
+    sync: [ID!]
+}
+
+input CreatePlatformBelongsToMany {
+    create: [CreatePlatformInput!]
+    upsert: [UpsertPlatformInput!]
+    connect: [ID!]
+    sync: [ID!]
+}
+
+input UpdateFormatBelongsToMany {
+    create: [CreateFormatInput!]
+    connect: [ID!]
+    update: [UpdateFormatInput!]
+    upsert: [UpsertFormatInput!]
+    sync: [ID!]
+    syncWithoutDetaching: [ID!]
+    delete: [ID!]
+    disconnect: [ID!]
+}
+
+input UpdatePurposeBelongsToMany {
+    create: [CreatePurposeInput!]
+    connect: [ID!]
+    update: [UpdatePurposeInput!]
+    upsert: [UpsertPurposeInput!]
+    sync: [ID!]
+    syncWithoutDetaching: [ID!]
+    delete: [ID!]
+    disconnect: [ID!]
+}
+
+input UpdatePlatformBelongsToMany {
+    create: [CreatePlatformInput!]
+    connect: [ID!]
+    update: [UpdatePlatformInput!]
+    upsert: [UpsertPlatformInput!]
+    sync: [ID!]
+    syncWithoutDetaching: [ID!]
+    delete: [ID!]
+    disconnect: [ID!]
+}

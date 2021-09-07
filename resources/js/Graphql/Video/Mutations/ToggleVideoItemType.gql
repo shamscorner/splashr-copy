@@ -1,0 +1,3 @@
+mutation TOGGLE_VIDEO_ITEM_TYPE($videoItem: VideoItemInput!) {
+    toggleVideoItemType(video_item: $videoItem)
+}

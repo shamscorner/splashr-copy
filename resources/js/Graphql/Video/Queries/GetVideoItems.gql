@@ -1,0 +1,46 @@
+query GET_VIDEO_ITEMS_BY_COMPANY($companyId: ID!, $status: Int) {
+    videoItems(company_id: $companyId, status: $status) {
+        paginatorInfo {
+            currentPage
+            lastPage
+            hasMorePages
+        }
+        data {
+            id
+            name
+            type
+            status
+            reference_number
+            paid_on
+            video {
+                id
+                name
+            }
+            order {
+                id
+                managers {
+                    id
+                    user {
+                        id
+                        first_name
+                        last_name
+                        email
+                        profile_photo_url
+                    }
+                }
+            }
+            company {
+                id
+                commitment {
+                    id
+                    motion_price_master
+                    motion_price_iteration
+                    motion_price_rich_content
+                    acting_price_master
+                    acting_price_iteration
+                    acting_price_rich_content
+                }
+            }
+        }
+    }
+}

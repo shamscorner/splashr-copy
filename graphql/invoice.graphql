@@ -1,0 +1,10 @@
+extend type Query {
+    invoicesByMonth(month: Int!): [Invoice!]
+}
+
+type Invoice {
+    id: ID!
+    name: String!
+    quantity: Int
+    total_due: Int
+}

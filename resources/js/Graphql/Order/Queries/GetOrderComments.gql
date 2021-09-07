@@ -1,0 +1,41 @@
+query GET_ORDER_COMMENTS($orderId: ID!, $page: Int!) {
+    commentsByOrder(order_id: $orderId, page: $page) {
+        data {
+            id
+            text
+            user_id
+            comment_id
+            seen_by
+            created_at
+            updated_at
+            user {
+                id
+                first_name
+                last_name
+                profile_photo_url
+                email
+            }
+            comments {
+                id
+                text
+                user_id
+                comment_id
+                seen_by
+                created_at
+                updated_at
+                user {
+                    id
+                    first_name
+                    last_name
+                    profile_photo_url
+                    email
+                }
+            }
+        }
+        paginatorInfo {
+            currentPage
+            lastPage
+            hasMorePages
+        }
+    }
+}

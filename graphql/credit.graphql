@@ -1,0 +1,8 @@
+type Credit {
+    id: ID!
+    name: String!
+    description: String
+    type: Int
+    created_at: DateTime!
+    updated_at: DateTime!
+}

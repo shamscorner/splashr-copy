@@ -1,0 +1,13 @@
+query SEARCH_MANAGERS($query: String!) {
+    searchManagers(query: $query) {
+        id
+        user_id
+        user {
+            id
+            first_name
+            last_name
+            email
+            profile_photo_url
+        }
+    }
+}

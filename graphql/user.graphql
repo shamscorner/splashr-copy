@@ -1,0 +1,15 @@
+extend type Query {
+    creditsDataByUser(user_id: ID!, company_id: ID!): String
+}
+
+type User {
+    id: ID!
+    first_name: String!
+    last_name: String
+    company_id: ID
+    email: String
+    phone: String
+    profile_photo_url: String
+    created_at: DateTime
+    updated_at: DateTime
+}

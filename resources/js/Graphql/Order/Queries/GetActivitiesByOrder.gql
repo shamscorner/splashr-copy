@@ -1,0 +1,28 @@
+query GET_ACTIVITIES_BY_ORDER($user_id: ID!, $order_id: ID!, $page: Int!) {
+    activitiesByOrder(user_id: $user_id, order_id: $order_id, page: $page) {
+        data {
+            id
+            description
+            order {
+                id
+                video {
+                    id
+                    name
+                }
+            }
+            user {
+                id
+                first_name
+                last_name
+                profile_photo_url
+            }
+            created_at
+            updated_at
+        }
+        paginatorInfo {
+            currentPage
+            lastPage
+            hasMorePages
+        }
+    }
+}

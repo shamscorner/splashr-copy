@@ -1,0 +1,34 @@
+mutation EDIT_ORDER_COMMENT($id:ID!, $comment:CommentInput!) {
+  editComment(id:$id, comment:$comment) {
+    id
+    text
+    user_id
+    comment_id
+    seen_by
+    created_at
+    updated_at
+    user {
+        id
+        first_name
+        last_name
+        profile_photo_url
+        email
+    }
+    comments {
+        id
+        text
+        user_id
+        comment_id
+        seen_by
+        created_at
+        updated_at
+        user {
+            id
+            first_name
+            last_name
+            profile_photo_url
+            email
+        }
+    }
+  }
+}

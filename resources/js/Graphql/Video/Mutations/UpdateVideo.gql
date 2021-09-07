@@ -1,0 +1,6 @@
+mutation UPDATE_VIDEO($id: ID!, $video: UpdateVideoInput!) {
+    updateVideo(id: $id, video: $video) {
+        id
+        name
+    }
+}

@@ -1,0 +1,26 @@
+extend type Mutation {
+    syncAssetsToProject(assets: AssetsWithVideoInput!): String
+}
+
+input FileInput {
+    id: ID!
+    isParentFolder: Boolean!
+}
+
+input AssetsInput {
+    logos: [FileInput!]
+    fonts: [FileInput!]
+    graphics: [FileInput!]
+    sounds: [FileInput!]
+    videos: [FileInput!]
+    media: [FileInput!]
+}
+
+input VideoInput {
+    id: ID!
+}
+
+input AssetsWithVideoInput {
+    video: VideoInput!
+    assets: AssetsInput!
+}

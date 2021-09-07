@@ -1,0 +1,17 @@
+extend type Mutation {
+    updateManagerOrder(
+        id: ID!
+        data: UpdateManagerOrderInput! @spread
+    ): ManagerOrder @update
+}
+
+type ManagerOrder {
+    id: ID!
+    order_id: ID!
+    manager_id: ID!
+    is_visited: Boolean
+}
+
+input UpdateManagerOrderInput {
+    is_visited: Boolean!
+}

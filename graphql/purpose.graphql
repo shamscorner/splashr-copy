@@ -1,0 +1,23 @@
+extend type Query {
+    purposes: [Purpose!] @all
+}
+
+type Purpose {
+    id: ID!
+    name: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreatePurposeInput {
+    name: String!
+}
+
+input UpdatePurposeInput {
+    name: String!
+}
+
+input UpsertPurposeInput {
+    id: ID!
+    name: String!
+}

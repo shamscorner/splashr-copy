@@ -1,0 +1,25 @@
+mutation CREATE_COMPANY_CREDIT($companyCredit: CompanyCreditInput!) {
+    createCompanyCredit(companyCredit: $companyCredit) {
+        id
+        credit {
+            id
+            name
+        }
+        credit_id
+        manager {
+            id
+            user_id
+            user {
+                id
+                first_name
+                last_name
+                email
+                profile_photo_url
+            }
+        }
+        manager_id
+        quantity
+        reference_number
+        updated_at
+    }
+}

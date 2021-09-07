@@ -1,0 +1,9 @@
+mutation TOGGLE_VIDEO_ITEM_STATUS(
+    $videoSessionType: String!
+    $videoItem: VideoItemInput!
+) {
+    toggleVideoItemStatus(
+        video_session_type: $videoSessionType
+        video_item: $videoItem
+    )
+}

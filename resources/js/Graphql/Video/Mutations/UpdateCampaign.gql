@@ -1,0 +1,6 @@
+mutation UPDATE_CAMPAIGN($id: ID!, $campaign: UpdateCampaignInput!) {
+    updateCampaign(id: $id, campaign: $campaign) {
+        id
+        name
+    }
+}

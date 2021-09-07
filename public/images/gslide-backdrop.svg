@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="189" height="117" viewBox="0 0 189 117">
+    <defs>
+        <filter id="8vt9lb2eja" width="114%" height="124.2%" x="-7%" y="-12.1%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g filter="url(#8vt9lb2eja)" transform="translate(-723 -227) translate(716 232) translate(16 4)">
+                    <g>
+                        <path fill="#F2B737" stroke="#F2B737" d="M138.807.5v21.316c0 2.848 1.133 5.43 2.972 7.321 1.847 1.9 4.406 3.101 7.247 3.177h0l21.474.004V98.5H.5V3.003c0-.665.259-1.269.681-1.717C1.604.84 2.19.546 2.843.506h0L138.807.5z"/>
+                        <path fill="#000" d="M144.378 31.818L171 31.818 171 54.091z" opacity=".1"/>
+                        <path fill="#F1D485" d="M139.307 0l10.054 10.094 14.115 14.17L171 31.818h-21.687c-5.526 0-10.006-4.474-10.006-10.002V0z"/>
+                        <g>
+                            <g transform="translate(38 35)">
+                                <rect width="60" height="48.621" fill="#FFF" rx="5"/>
+                                <path fill="#F2B737" d="M7.241 15.517H53.793V34.138H7.241z"/>
+                            </g>
+                            <g>
+                                <path fill="#FFF" d="M0 5.01C0 2.242 2.24 0 4.995 0h54.01C61.764 0 64 2.237 64 5.01V43.3H0V5.01z" transform="translate(38 35) translate(28 20.7)"/>
+                                <path fill="#F2B737" d="M8 15H57V34H8z" transform="translate(38 35) translate(28 20.7)"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

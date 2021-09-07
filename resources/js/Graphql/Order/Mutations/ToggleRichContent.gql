@@ -1,0 +1,11 @@
+mutation TOGGLE_RICH_CONTENT(
+    $isIncrement: Boolean!
+    $videoSessionType: String!
+    $videoItem: VideoItemInput!
+) {
+    toggleRichContent(
+        is_increment: $isIncrement
+        video_session_type: $videoSessionType
+        video_item: $videoItem
+    )
+}

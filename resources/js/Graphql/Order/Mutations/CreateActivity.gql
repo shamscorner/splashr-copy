@@ -1,0 +1,21 @@
+mutation CREATE_ACTIVITY($activity: ActivityInput!) {
+    createActivity(activity: $activity) {
+        id
+        description
+        order {
+            id
+            video {
+                id
+                name
+            }
+        }
+        user {
+            id
+            first_name
+            last_name
+            profile_photo_url
+        }
+        created_at
+        updated_at
+    }
+}

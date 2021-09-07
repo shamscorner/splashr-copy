@@ -1,0 +1,57 @@
+query GET_VIDEO_ITEMS_BY_COMPANY_AND_MONTH(
+    $companyId: ID!
+    $status: [Int!]!
+    $month: Int!
+    $page: Int
+) {
+    videoItemsByCompanyAndMonth(
+        company_id: $companyId
+        status: $status
+        month: $month
+        page: $page
+    ) {
+        paginatorInfo {
+            currentPage
+            lastPage
+            hasMorePages
+        }
+        data {
+            id
+            name
+            type
+            status
+            reference_number
+            paid_on
+            video {
+                id
+                name
+                session_type
+            }
+            order {
+                id
+                managers {
+                    id
+                    user {
+                        id
+                        first_name
+                        last_name
+                        email
+                        profile_photo_url
+                    }
+                }
+            }
+            company {
+                id
+                commitment {
+                    id
+                    motion_price_master
+                    motion_price_iteration
+                    motion_price_rich_content
+                    acting_price_master
+                    acting_price_iteration
+                    acting_price_rich_content
+                }
+            }
+        }
+    }
+}

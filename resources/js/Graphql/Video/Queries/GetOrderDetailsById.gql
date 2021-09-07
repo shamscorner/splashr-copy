@@ -1,0 +1,7 @@
+query GET_ORDER_DETAILS($id: ID!) {
+    video(id: $id) {
+        id
+        name
+        manager_notes
+    }
+}

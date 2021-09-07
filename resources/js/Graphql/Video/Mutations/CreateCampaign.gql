@@ -1,0 +1,7 @@
+mutation CREATE_CAMPAIGN($campaign: CreateCampaignInput!) {
+    createCampaign(campaign: $campaign) {
+        id
+        name
+        created_at
+    }
+}

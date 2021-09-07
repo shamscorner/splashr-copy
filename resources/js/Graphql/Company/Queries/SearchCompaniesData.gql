@@ -1,0 +1,33 @@
+query SEARCH_COMPANIES_DATA($userId: ID!, $query: String) {
+    searchCompaniesDataForClients(user_id: $userId, query: $query) {
+        id
+        name
+        total_orders_count
+        active_orders_count
+        users {
+            id
+            first_name
+            last_name
+            company_id
+            email
+            profile_photo_url
+        }
+        managers {
+            id
+            user_id
+            user {
+                id
+                first_name
+                last_name
+                email
+                profile_photo_url
+            }
+            company_manager_pivot {
+                id
+                has_seen
+                company_id
+                manager_id
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+query GET_INVOICES_BY_MONTH($month: Int!) {
+    invoicesByMonth(month: $month) {
+        id
+        name
+        quantity
+        total_due
+    }
+}

@@ -1,0 +1,33 @@
+extend type Query {
+    activitiesByUser(user_id: ID!): [Activity!]
+        @paginate(
+            defaultCount: 30
+            builder: "App\\GraphQL\\Queries\\ActivitiesByUser"
+        )
+    activitiesByOrder(user_id: ID!, order_id: ID!): [Activity!]
+        @paginate(
+            defaultCount: 30
+            builder: "App\\GraphQL\\Queries\\ActivitiesByOrder"
+        )
+}
+
+extend type Mutation {
+    createActivity(activity: ActivityInput! @spread): Activity @create
+}
+
+type Activity {
+    id: ID!
+    description: String!
+    order_id: ID!
+    user_id: ID!
+    created_at: DateTime!
+    updated_at: DateTime!
+    order: Order! @belongsTo
+    user: User! @belongsTo
+}
+
+input ActivityInput {
+    description: String!
+    order_id: ID!
+    user_id: ID!
+}

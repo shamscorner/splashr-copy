@@ -1,0 +1,15 @@
+query GET_ALL_VIDEOS {
+    videos(first: 25) {
+        data {
+            id
+            name
+            created_at
+        }
+        paginatorInfo {
+            currentPage
+            lastPage
+            total
+            perPage
+        }
+    }
+}

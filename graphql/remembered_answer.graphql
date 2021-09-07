@@ -1,0 +1,16 @@
+extend type Mutation {
+    rememberAnswers(answers: RememberAnswersInput!): RememberedAnswer
+}
+
+type RememberedAnswer {
+    id: ID!
+    client_id: ID!
+    answers: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input RememberAnswersInput {
+    client_id: ID!
+    answers: String
+}

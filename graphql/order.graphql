@@ -1,0 +1,44 @@
+extend type Query {
+    searchOrders(user_id: ID!, query: String): [Order!]
+    fetchOrdersOfClientsOfManager(user_id: ID!): [Order!]
+}
+
+extend type Mutation {
+    createOrder(order: CreateOrderInput! @spread): Order @create
+    updateOrder(id: ID!, order: UpdateOrderInput! @spread): Order @update
+    markCommentAsSeen(order_id: ID!, user_id: ID!): Boolean
+    toggleRichContent(
+        is_increment: Boolean!
+        video_session_type: String!
+        video_item: VideoItemInput!
+    ): String
+}
+
+type Order {
+    id: ID!
+    video_id: ID!
+    created_at: DateTime
+    updated_at: DateTime
+    deadline: DateTime
+    frameio_project_id: String
+    recent_commenters: String
+    managers: [Manager!] @belongsToMany
+    video: Video! @belongsTo
+}
+
+input CreateOrderInput {
+    video_id: ID!
+}
+
+input UpdateOrderInput {
+    video_id: ID!
+    frameio_project_id: String
+    deadline: DateTime
+    managers: UpdateManagerBelongsToMany
+}
+
+input UpdateManagerBelongsToMany {
+    sync: [ID!]
+    connect: [ID!]
+    disconnect: [ID!]
+}

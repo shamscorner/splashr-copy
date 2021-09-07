@@ -1,0 +1,3 @@
+mutation SYNC_ASSETS_TO_PROJECT($assets: AssetsWithVideoInput!) {
+    syncAssetsToProject(assets: $assets)
+}

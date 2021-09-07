@@ -1,0 +1,17 @@
+extend type Mutation {
+    updateCompanyManager(
+        id: ID!
+        data: UpdateCompanyManagerInput! @spread
+    ): CompanyManager @update
+}
+
+type CompanyManager {
+    id: ID!
+    company_id: ID!
+    manager_id: ID!
+    has_seen: Boolean
+}
+
+input UpdateCompanyManagerInput {
+    has_seen: Boolean!
+}

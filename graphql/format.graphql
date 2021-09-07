@@ -1,0 +1,32 @@
+extend type Query {
+    formats: [Format!] @all
+}
+
+type Format {
+    id: ID!
+    name: String!
+    ratio: String
+    viewport: String
+    icon: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateFormatInput {
+    name: String!
+    ratio: String
+    viewport: String
+}
+
+input UpdateFormatInput {
+    name: String!
+    ratio: String
+    viewport: String
+}
+
+input UpsertFormatInput {
+    id: ID!
+    name: String!
+    ratio: String
+    viewport: String
+}

@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Providers;
+
+use League\Flysystem\Filesystem;
+use App\Utils\GoogleDriveFileUtils;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\ServiceProvider;
+
+class GoogleDriveServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Storage::extend('google', function ($app, $config) {
+            $client = new \Google_Client();
+            $client->setClientId($config['clientId']);
+            $client->setClientSecret($config['clientSecret']);
+            // $client->refreshToken($config['refreshToken']);
+            $client->setAuthConfig(GoogleDriveFileUtils::getOAuthCredentialsFile());
+            $client->setRedirectUri(env('APP_URL'));
+            $client->addScope("https://www.googleapis.com/auth/drive");
+            $service = new \Google_Service_Drive($client);
+            $adapter = new \Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter($service);
+            // $adapter = new \Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter($service, $config['folderId']);
+
+            // $adapter = new \League\Flysystem\Cached\CachedAdapter(
+            //     new \Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter($service, $config['folderId']),
+            //     new \League\Flysystem\Cached\Storage\Memory()
+            // );
+
+            return new Filesystem($adapter);
+        });
+    }
+}

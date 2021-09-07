@@ -1,0 +1,7 @@
+mutation UPDATE_ORDER_TASK($id: ID!, $task: TaskUpdateInput!) {
+    updateTask(id: $id, task: $task) {
+        id
+        description
+        is_completed
+    }
+}

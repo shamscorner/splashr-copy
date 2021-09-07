@@ -1,0 +1,12 @@
+query GET_COMMITMENT_OF_CLIENT($companyId: ID!) {
+    commitment(company_id: $companyId) {
+        id
+        company_id
+        motion_quantity_master
+        motion_quantity_iteration
+        motion_quantity_rich_content
+        acting_quantity_master
+        acting_quantity_iteration
+        acting_quantity_rich_content
+    }
+}

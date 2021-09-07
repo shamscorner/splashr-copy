@@ -1,0 +1,8 @@
+mutation SEND_USER_REGISTRATION_INVITE($data: userInviteInput!) {
+    sendUserRegistrationInvite(data: $data) {
+        id
+        invitee_email
+        metadata
+        created_at
+    }
+}

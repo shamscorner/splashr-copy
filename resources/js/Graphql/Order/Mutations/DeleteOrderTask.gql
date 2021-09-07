@@ -1,0 +1,5 @@
+mutation DELETE_ORDER_TASK($id: ID!) {
+    deleteTask(id: $id) {
+        id
+    }
+}

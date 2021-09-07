@@ -1,0 +1,45 @@
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+type Query {
+    users: [User!]! @paginate(defaultCount: 10)
+    user(id: ID @eq): User @find
+}
+
+type User {
+    id: ID!
+    first_name: String!
+    last_name: String
+    email: String!
+    profile_photo_path: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+#import user.graphql
+#import manager.graphql
+#import company.graphql
+#import commitment.graphql
+#import company_manager.graphql
+#import credit.graphql
+#import format.graphql
+#import platform.graphql
+#import purpose.graphql
+#import campaign.graphql
+#import video.graphql
+#import order.graphql
+#import manager_order.graphql
+#import remembered_answer.graphql
+#import google_drive.graphql
+#import company_credit.graphql
+#import creative_document.graphql
+#import invitation.graphql
+#import comment.graphql
+#import task.graphql
+#import activity.graphql
+#import video_item.graphql
+#import invoice.graphql

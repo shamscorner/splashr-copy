@@ -1,0 +1,22 @@
+query GET_TASKS_BY_ORDER($orderId: ID!, $userId: ID!, $page: Int) {
+    tasksByOrder(
+        order_id: $orderId
+        user_id: $userId
+        orderBy: [
+            { field: IS_COMPLETED, order: ASC }
+            { field: UPDATED_AT, order: DESC }
+        ]
+        page: $page
+    ) {
+        data {
+            id
+            description
+            is_completed
+        }
+        paginatorInfo {
+            currentPage
+            lastPage
+            hasMorePages
+        }
+    }
+}

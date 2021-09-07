@@ -1,0 +1,69 @@
+extend type Query {
+    commitment(company_id: ID! @where(operator: "=")): Commitment @find
+}
+
+extend type Mutation {
+    updateOrCreateCommitment(
+        id: ID!
+        company_id: ID!
+        commitment: CommitmentInput!
+    ): Commitment
+}
+
+type Commitment {
+    id: ID!
+    company_id: ID!
+
+    motion_quantity_master: Int
+    motion_quantity_iteration: Int
+    motion_quantity_rich_content: Int
+
+    motion_price_master: Int
+    motion_price_iteration: Int
+    motion_price_rich_content: Int
+
+    used_motion_quantity_master: Int
+    used_motion_quantity_iteration: Int
+    used_motion_quantity_rich_content: Int
+
+    acting_quantity_master: Int
+    acting_quantity_iteration: Int
+    acting_quantity_rich_content: Int
+
+    acting_price_master: Int
+    acting_price_iteration: Int
+    acting_price_rich_content: Int
+
+    used_acting_quantity_master: Int
+    used_acting_quantity_iteration: Int
+    used_acting_quantity_rich_content: Int
+
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CommitmentInput {
+    motion_quantity_master: Int
+    motion_quantity_iteration: Int
+    motion_quantity_rich_content: Int
+
+    motion_price_master: Int
+    motion_price_iteration: Int
+    motion_price_rich_content: Int
+
+    used_motion_quantity_master: Int
+    used_motion_quantity_iteration: Int
+    used_motion_quantity_rich_content: Int
+
+    acting_quantity_master: Int
+    acting_quantity_iteration: Int
+    acting_quantity_rich_content: Int
+
+    acting_price_master: Int
+    acting_price_iteration: Int
+    acting_price_rich_content: Int
+
+    used_acting_quantity_master: Int
+    used_acting_quantity_iteration: Int
+    used_acting_quantity_rich_content: Int
+}

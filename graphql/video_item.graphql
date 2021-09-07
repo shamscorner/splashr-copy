@@ -1,0 +1,56 @@
+extend type Query {
+    videoItems(
+        company_id: ID! @where(operator: "=")
+        status: Int @where(operator: "=")
+    ): [VideoItem!] @paginate(defaultCount: 20)
+
+    videoItemsByCompanyAndMonth(
+        company_id: ID!
+        status: [Int!]!
+        month: Int!
+    ): [VideoItem!]
+        @paginate(
+            defaultCount: 20
+            builder: "App\\GraphQL\\Queries\\VideoItemsByCompanyAndMonth"
+        )
+}
+
+extend type Mutation {
+    insertOrUpdateVideoItem(video_items: [VideoItemInput!]!): [VideoItem!]
+    toggleVideoItemType(video_item: VideoItemInput!): String
+    toggleVideoItemStatus(
+        video_session_type: String!
+        video_item: VideoItemInput!
+    ): String
+}
+
+type VideoItem {
+    id: String!
+    company_id: ID!
+    video_id: ID!
+    order_id: ID!
+    name: String
+    type: Int
+    status: Int
+    paid_on: DateTime
+    url: String
+    reference_number: String
+    created_at: DateTime
+    updated_at: DateTime
+    video: Video! @belongsTo
+    order: Order! @belongsTo
+    company: Company @belongsTo
+}
+
+input VideoItemInput {
+    id: String
+    company_id: ID!
+    video_id: ID!
+    order_id: ID!
+    name: String
+    type: Int
+    status: Int
+    paid_on: DateTime
+    url: String
+    reference_number: String
+}

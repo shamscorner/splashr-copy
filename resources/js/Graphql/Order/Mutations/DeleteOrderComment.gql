@@ -1,0 +1,6 @@
+mutation DELETE_ORDER_COMMENT($id:ID!) {
+  deleteComment(id:$id) {
+    id
+    comment_id
+  }
+}

@@ -1,0 +1,6 @@
+query GET_USER_INVITATIONS($inviter_id: ID!) {
+    invitationsByInviter(inviter_id: $inviter_id) {
+        id
+        invitee_email
+    }
+}

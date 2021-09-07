@@ -1,0 +1,34 @@
+extend type Query {
+    commentsByOrder(order_id: ID!): [Comment!]
+        @paginate(
+            defaultCount: 20
+            builder: "App\\GraphQL\\Queries\\CommentsByOrder"
+        )
+}
+
+extend type Mutation {
+    addComment(comment: CommentInput! @spread): Comment @create
+    editComment(id: ID!, comment: CommentInput! @spread): Comment @update
+    deleteComment(id: ID!): Comment @delete
+}
+
+type Comment {
+    id: ID!
+    text: String!
+    user_id: ID!
+    order_id: ID!
+    comment_id: ID
+    seen_by: String
+    created_at: DateTime!
+    updated_at: DateTime!
+    user: User! @belongsTo
+    comments: [Comment!] @hasMany
+}
+
+input CommentInput {
+    text: String!
+    user_id: ID!
+    order_id: ID!
+    comment_id: ID
+    seen_by: String
+}

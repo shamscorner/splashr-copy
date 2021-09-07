@@ -1,0 +1,30 @@
+extend type Query {
+    campaigns: [Campaign!] @all
+}
+
+extend type Mutation {
+    createCampaign(campaign: CreateCampaignInput! @spread): Campaign @create
+    updateCampaign(id: ID!, campaign: UpdateCampaignInput! @spread): Campaign
+        @update
+}
+
+type Campaign {
+    id: ID!
+    name: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateCampaignInput {
+    name: String!
+    clients: CreateClientBelongsToMany
+}
+
+input CreateClientBelongsToMany {
+    connect: [ID!]
+    sync: [ID!]
+}
+
+input UpdateCampaignInput {
+    name: String!
+}

@@ -1,0 +1,5 @@
+mutation UPDATE_COMPANY($id: ID!, $company: UpdateCompanyInput!) {
+    updateCompany(id: $id, company: $company) {
+        id
+    }
+}

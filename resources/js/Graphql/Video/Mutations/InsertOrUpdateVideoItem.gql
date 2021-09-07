@@ -1,0 +1,13 @@
+mutation INSERT_OR_UPDATE_VIDEO_ITEM($videoItems: [VideoItemInput!]!) {
+    insertOrUpdateVideoItem(video_items: $videoItems) {
+        id
+        company_id
+        video_id
+        order_id
+        name
+        type
+        status
+        paid_on
+        url
+    }
+}

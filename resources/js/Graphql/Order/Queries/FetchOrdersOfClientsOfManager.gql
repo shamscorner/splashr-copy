@@ -1,0 +1,38 @@
+query FETCH_ORDERS_OF_CLIENTS_OF_MANAGER($userId: ID!) {
+    fetchOrdersOfClientsOfManager(user_id: $userId) {
+        id
+        video_id
+        deadline
+        created_at
+        updated_at
+        recent_commenters
+        managers {
+            id
+            user_id
+            user {
+                id
+                email
+                first_name
+                last_name
+                profile_photo_url
+            }
+            manager_order_pivot {
+                id
+                manager_id
+                order_id
+                is_visited
+            }
+        }
+        video {
+            id
+            name
+            status
+            pending_side
+            company_id
+            company {
+                id
+                name
+            }
+        }
+    }
+}

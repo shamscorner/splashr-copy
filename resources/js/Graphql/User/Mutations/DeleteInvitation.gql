@@ -1,0 +1,5 @@
+mutation DELETE_USER_INVITATION($id: ID!) {
+    deleteInvitation(id: $id) {
+        id
+    }
+}

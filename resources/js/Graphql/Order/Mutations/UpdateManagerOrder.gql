@@ -1,0 +1,8 @@
+mutation UPDATE_MANAGER_ORDER($id: ID!, $data: UpdateManagerOrderInput!) {
+    updateManagerOrder(id: $id, data: $data) {
+        id
+        order_id
+        manager_id
+        is_visited
+    }
+}

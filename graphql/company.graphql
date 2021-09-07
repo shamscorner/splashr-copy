@@ -1,0 +1,38 @@
+extend type Query {
+    company(id: ID! @eq): Company @find
+    searchCompaniesDataForClients(user_id: ID!, query: String): [Company!]
+    fetchCompaniesDataForClientsOfManager(user_id: ID!): [Company!]
+}
+
+extend type Mutation {
+    updateCompany(id: ID!, company: UpdateCompanyInput! @spread): Company
+        @update
+}
+
+type Company {
+    id: ID!
+    name: String!
+    g_folder_id: String
+    g_media_folder_id: String
+    g_projects_folder_id: String
+    total_orders_count: Int
+    active_orders_count: Int
+    created_at: DateTime
+    updated_at: DateTime
+    users: [User!] @hasMany
+    managers: [Manager!] @belongsToMany
+    commitment: Commitment @hasOne
+}
+
+input UpdateCompanyInput {
+    name: String
+    total_orders_count: Int
+    active_orders_count: Int
+    managers: UpdateManagerBelongsToMany
+}
+
+input UpdateManagerBelongsToMany {
+    sync: [ID!]
+    connect: [ID!]
+    disconnect: [ID!]
+}

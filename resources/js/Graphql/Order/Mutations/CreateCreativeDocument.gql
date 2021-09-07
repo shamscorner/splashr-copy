@@ -1,0 +1,14 @@
+mutation CREATE_CREATIVE_DOCUMENT(
+    $creativeDocument: CreateCreativeDocumentInput!
+) {
+    createCreativeDocument(creativeDocument: $creativeDocument) {
+        id
+        type
+        url
+        order_id
+        document_id
+        is_changed
+        created_at
+        updated_at
+    }
+}
